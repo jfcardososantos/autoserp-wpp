@@ -1,4 +1,4 @@
-version: "3"
+version: "3.8"
 
 services:
   wppconnect:
@@ -9,8 +9,22 @@ services:
     volumes:
       - ./config.ts:/usr/src/wpp-server/config.ts
       - ./wppconnect_tokens:/usr/src/wpp-server/tokens
+      - ./userDataDir:/usr/src/wpp-server/userDataDir
     ports:
       - "21465:21465"
+    depends_on:
+      - autoserp-mongo
+
+  autoserp-mongo:
+    container_name: wpp-connect_autoserp-mongo
+    image: mongo:5.0
+    restart: unless-stopped
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=mongo
+      - MONGO_INITDB_ROOT_PASSWORD=4c5c50327ff2dbe8aba7
 
 volumes:
+  mongodb_data: {}
   wppconnect_tokens: {}

@@ -83,14 +83,14 @@ export default {
     enable: false,
     prefix: 'tagone-',
   },
-  db: {
+    db: {
     mongodbDatabase: 'tokens',
     mongodbCollection: '',
     mongodbUser: 'mongo',
     mongodbPassword: '4c5c50327ff2dbe8aba7',
-    mongodbHost: '192.168.68.222',
-    mongoIsRemote: false,
-    mongoURLRemote: '',
+    mongodbHost: '',
+    mongoIsRemote: true,
+    mongoURLRemote: 'mongodb://mongo:4c5c50327ff2dbe8aba7@autoserp-mongo:27017/tokens?tls=false',
     mongodbPort: 27017,
     redisHost: 'localhost',
     redisPort: 6379,
