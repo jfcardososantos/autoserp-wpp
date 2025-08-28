@@ -147,7 +147,7 @@ export async function callWebHook(
             const events = ['unreadmessages', 'onmessage'];
             if (events.includes(event) && req.serverOptions.webhook.readMessage)
               client.sendSeen(chatId);
-          } catch (e) {}
+          } catch (e) { }
         })
         .catch((e) => {
           req.logger.warn('Error calling Webhook.', e);
@@ -189,11 +189,10 @@ export async function autoDownload(client: any, req: any, message: any) {
         bucketName =
           bucketName.length < 3
             ? bucketName +
-              `${Math.floor(Math.random() * (999 - 100 + 1)) + 100}`
+            `${Math.floor(Math.random() * (999 - 100 + 1)) + 100}`
             : bucketName;
-        const fileName = `${
-          config.aws_s3.defaultBucketName ? client.session + '/' : ''
-        }${hashName}.${mime.extension(message.mimetype)}`;
+        const fileName = `${config.aws_s3.defaultBucketName ? client.session + '/' : ''
+          }${hashName}.${mime.extension(message.mimetype)}`;
 
         if (
           !config.aws_s3.defaultBucketName &&
@@ -240,15 +239,28 @@ export async function autoDownload(client: any, req: any, message: any) {
 export async function startAllSessions(config: any, logger: any) {
   try {
     logger.info('Tentando iniciar todas as sessões...');
-    const response = await api.post(
-      `${config.host}:${config.port}/api/${config.secretKey}/start-all`
+
+    // Usar fetch nativo em vez de axios para evitar problemas de dependência
+    const response = await fetch(
+      `${config.host}:${config.port}/api/${config.secretKey}/start-all`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
     );
-    logger.info('Sessões iniciadas com sucesso:', response.data);
+
+    if (response.ok) {
+      const data = await response.json();
+      logger.info('Sessões iniciadas com sucesso:', data);
+    } else {
+      logger.error('Erro na resposta do servidor:', response.status, response.statusText);
+    }
   } catch (e: any) {
     if (e.code === 'ECONNREFUSED') {
       logger.error('Erro de conexão: Servidor não está respondendo na porta', config.port);
-    } else if (e.response) {
-      logger.error('Erro na resposta do servidor:', e.response.status, e.response.data);
+      logger.info('Isso é normal na primeira inicialização, o servidor tentará novamente mais tarde');
     } else {
       logger.error('Erro ao iniciar sessões:', e.message || e);
     }

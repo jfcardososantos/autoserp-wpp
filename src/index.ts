@@ -124,9 +124,10 @@ export function initServer(serverOptions: Partial<ServerOptions>): {
     logger.info(`WPPConnect-Server version: ${version}`);
 
     if (serverOptions.startAllSession) {
+      // Aumentar delay para garantir que o servidor esteja pronto
       setTimeout(() => {
         startAllSessions(serverOptions, logger);
-      }, 5000);
+      }, 15000); // 15 segundos em vez de 5
     }
   });
 

@@ -18,14 +18,24 @@ cd autoserp-wpp
 
 2. **Inicie os serviços**
 ```bash
-# Iniciar MongoDB primeiro
-docker-compose up -d autoserp-mongo
-
-# Aguardar MongoDB estar disponível e iniciar servidor
+# Iniciar tudo de uma vez
 ./start.sh
+
+# Ou manualmente:
+docker-compose up -d
 ```
 
-3. **Verificar logs**
+3. **Testar conexão MongoDB**
+```bash
+./test-mongo.sh
+```
+
+4. **Testar servidor**
+```bash
+./test-server.sh
+```
+
+5. **Verificar logs**
 ```bash
 # Logs do servidor
 docker-compose logs -f wppconnect
@@ -36,12 +46,27 @@ docker-compose logs -f autoserp-mongo
 
 ## 🔧 Configuração
 
-### Variáveis de Ambiente
-As principais configurações estão no arquivo `src/config.ts`:
+### Configuração do MongoDB
+O arquivo `src/config.ts` permite configurar diferentes tipos de conexão:
 
-- **Porta do servidor**: 21465
-- **MongoDB**: Configurado para usar container Docker
-- **Webhook**: Configurado para enviar eventos
+```typescript
+db: {
+  // Para MongoDB local
+  mongodbHost: 'localhost',
+  mongodbPort: 27017,
+  mongodbDatabase: 'tokens',
+  mongodbUser: 'user',
+  mongodbPassword: 'password',
+  mongoIsRemote: false,
+  
+  // Para MongoDB remoto
+  mongoIsRemote: true,
+  mongoURLRemote: 'mongodb://user:pass@host:port/database?authSource=admin',
+  
+  // Para outros bancos (Redis, etc.)
+  tokenStoreType: 'mongodb' // ou 'redis', 'file'
+}
+```
 
 ### Estrutura do Projeto
 ```
@@ -59,32 +84,22 @@ src/
 ## 🐛 Solução de Problemas
 
 ### Erro de Autenticação MongoDB
-Se você encontrar erro de autenticação:
 ```bash
-# Parar todos os containers
+# Parar e remover containers
 docker-compose down
-
-# Remover volumes (cuidado: isso apaga os dados)
-docker-compose down -v
 
 # Reconstruir e iniciar
 docker-compose up --build
 ```
 
-### Erro de Conexão
-Se o servidor não conseguir conectar ao MongoDB:
-1. Verifique se o MongoDB está rodando: `docker-compose ps`
-2. Verifique os logs: `docker-compose logs autoserp-mongo`
-3. Aguarde o healthcheck passar antes de iniciar o servidor
-
-### Porta em Uso
-Se a porta 21465 estiver em uso:
+### Testar Conexão MongoDB
 ```bash
-# Verificar processos usando a porta
-lsof -i :21465
+./test-mongo.sh
+```
 
-# Parar processo se necessário
-kill -9 <PID>
+### Verificar Status dos Containers
+```bash
+docker-compose ps
 ```
 
 ## 📚 API
@@ -108,8 +123,11 @@ http://localhost:21465/api-docs
 
 ## 📝 Logs
 
-Os logs são configurados para mostrar informações detalhadas. Para produção, considere ajustar o nível de log em `src/config.ts`:
+Os logs mostram o status da conexão MongoDB no início:
+- ✅ MongoDB conectado com sucesso
+- ❌ Erro na conexão MongoDB
 
+Para ajustar o nível de log em `src/config.ts`:
 ```typescript
 log: {
   level: 'info', // 'silly', 'debug', 'info', 'warn', 'error'
