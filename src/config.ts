@@ -88,7 +88,7 @@ export default {
     mongodbCollection: '',
     mongodbUser: 'mongo',
     mongodbPassword: '4c5c50327ff2dbe8aba7',
-    mongodbHost: 'wpp-connect_autoserp-mongo',
+    mongodbHost: '192.168.68.222',
     mongoIsRemote: false,
     mongoURLRemote: '',
     mongodbPort: 27017,
