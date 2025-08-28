@@ -123,7 +123,11 @@ export function initServer(serverOptions: Partial<ServerOptions>): {
     );
     logger.info(`WPPConnect-Server version: ${version}`);
 
-    if (serverOptions.startAllSession) startAllSessions(serverOptions, logger);
+    if (serverOptions.startAllSession) {
+      setTimeout(() => {
+        startAllSessions(serverOptions, logger);
+      }, 5000);
+    }
   });
 
   if (config.log.level === 'error' || config.log.level === 'warn') {
