@@ -19,6 +19,7 @@ services:
       - PORT=21465
       - HOST=localhost
       - HOSTNAME=wpp-server-${RANDOM}
+      - CHROME_DEVEL_SANDBOX=/usr/lib/chromium/chrome-sandbox
 
   autoserp-mongo:
     container_name: wpp-connect_autoserp-mongo
