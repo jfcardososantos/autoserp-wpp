@@ -31,7 +31,7 @@ export async function getAllGroups(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
    */
   try {
@@ -54,7 +54,7 @@ export async function joinGroupByCode(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -112,7 +112,7 @@ export async function createGroup(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -187,7 +187,7 @@ export async function leaveGroup(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -233,7 +233,7 @@ export async function getGroupMembers(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
    */
   const { groupId } = req.params;
@@ -262,7 +262,7 @@ export async function addParticipant(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -326,7 +326,7 @@ export async function removeParticipant(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -392,7 +392,7 @@ export async function promoteParticipant(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -453,7 +453,7 @@ export async function demoteParticipant(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -514,7 +514,7 @@ export async function getGroupAdmins(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -568,7 +568,7 @@ export async function getGroupInviteLink(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -610,7 +610,7 @@ export async function revokeGroupInviteLink(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -657,7 +657,7 @@ export async function getAllBroadcastList(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
    */
   try {
@@ -681,7 +681,7 @@ export async function getGroupInfoFromInviteLink(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -719,7 +719,7 @@ export async function getGroupMembersIds(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["groupId"] = {
       schema: '<groupId>'
@@ -750,7 +750,7 @@ export async function setGroupDescription(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -795,7 +795,7 @@ export async function setGroupProperty(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -841,7 +841,7 @@ export async function setGroupSubject(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -886,7 +886,7 @@ export async function setMessagesAdminsOnly(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -931,7 +931,7 @@ export async function changePrivacyGroup(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -981,7 +981,7 @@ export async function setGroupProfilePic(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -1034,7 +1034,7 @@ export async function getCommonGroups(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["wid"] = {
       schema: '5521999999999@c.us'

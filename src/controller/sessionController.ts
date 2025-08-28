@@ -110,7 +110,7 @@ export async function startAllSessions(
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["secretkey"] = {
       schema: 'THISISMYSECURECODE'
@@ -215,7 +215,7 @@ export async function startSession(req: Request, res: Response): Promise<any> {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -252,7 +252,7 @@ export async function closeSession(req: Request, res: Response): Promise<any> {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
    */
   const session = req.session;
@@ -293,7 +293,7 @@ export async function logOutSession(req: Request, res: Response): Promise<any> {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
    */
   try {
@@ -355,7 +355,7 @@ export async function checkConnectionSession(
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
    */
   try {
@@ -376,7 +376,7 @@ export async function downloadMediaByMessage(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -443,7 +443,7 @@ export async function getMediaByMessage(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["session"] = {
       schema: 'messageId'
@@ -492,7 +492,7 @@ export async function getSessionState(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
    */
   try {
@@ -531,7 +531,7 @@ export async function getQrCode(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
    */
   try {
@@ -586,7 +586,7 @@ export async function killServiceWorker(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
    */
   try {
@@ -611,7 +611,7 @@ export async function restartService(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
    */
   try {
@@ -634,7 +634,7 @@ export async function subscribePresence(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -697,7 +697,7 @@ export async function setOnlinePresence(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -744,7 +744,7 @@ export async function editBusinessProfile(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["obj"] = {
       in: 'body',

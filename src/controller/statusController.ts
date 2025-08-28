@@ -21,7 +21,7 @@ export async function sendTextStorie(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["obj"] = {
       in: 'body',
@@ -81,7 +81,7 @@ export async function sendImageStorie(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -134,7 +134,7 @@ export async function sendVideoStorie(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,

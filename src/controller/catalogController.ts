@@ -25,7 +25,7 @@ export async function getProducts(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["phone"] = {
       in: 'query',
@@ -66,7 +66,7 @@ export async function getProductById(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["phone"] = {
       in: 'query',
@@ -103,7 +103,7 @@ export async function editProduct(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
     #swagger.requestBody = {
         required: true,
@@ -156,7 +156,7 @@ export async function delProducts(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
         required: true,
@@ -205,7 +205,7 @@ export async function changeProductImage(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      
      #swagger.requestBody = {
@@ -257,7 +257,7 @@ export async function addProduct(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
         required: true,
@@ -336,7 +336,7 @@ export async function addProductImage(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
         required: true,
@@ -387,7 +387,7 @@ export async function removeProductImage(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
         required: true,
@@ -438,7 +438,7 @@ export async function getCollections(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["phone"] = {
       schema: '5521999999999'
@@ -480,7 +480,7 @@ export async function createCollection(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
         required: true,
@@ -531,7 +531,7 @@ export async function editCollection(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
         required: true,
@@ -584,7 +584,7 @@ export async function deleteCollection(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
         required: true,
@@ -633,7 +633,7 @@ export async function setProductVisibility(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["obj"] = {
       in: 'body',
@@ -691,7 +691,7 @@ export async function updateCartEnabled(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
       #swagger.requestBody = {
         required: true,
@@ -740,7 +740,7 @@ export async function sendLinkCatalog(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
       #swagger.requestBody = {
         required: true,

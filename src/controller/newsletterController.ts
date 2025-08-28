@@ -41,7 +41,7 @@ export async function createNewsletter(req: Request, res: Response) {
               "bearerAuth": []
        }]
        #swagger.parameters["session"] = {
-        schema: 'NERDWHATS_AMERICA'
+        schema: 'alfst-test'
        }
        #swagger.requestBody = {
         required: true,
@@ -88,7 +88,7 @@ export async function editNewsletter(req: Request, res: Response) {
                 "bearerAuth": []
          }]
          #swagger.parameters["session"] = {
-          schema: 'NERDWHATS_AMERICA'
+          schema: 'alfst-test'
          }
          #swagger.parameters["id"] = {
           schema: '<newsletter_id>'
@@ -153,7 +153,7 @@ export async function destroyNewsletter(req: Request, res: Response) {
             "bearerAuth": []
     }]
     #swagger.parameters["session"] = {
-        schema: 'NERDWHATS_AMERICA'
+        schema: 'alfst-test'
     }
     #swagger.parameters["id"] = {
         schema: 'NEWSLETTER ID'
@@ -178,7 +178,7 @@ export async function muteNewsletter(req: Request, res: Response) {
               "bearerAuth": []
       }]
       #swagger.parameters["session"] = {
-          schema: 'NERDWHATS_AMERICA'
+          schema: 'alfst-test'
       }
       #swagger.parameters["id"] = {
           schema: 'NEWSLETTER ID'

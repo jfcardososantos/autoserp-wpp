@@ -39,7 +39,7 @@ export async function sendMessage(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
     #swagger.requestBody = {
       required: true,
@@ -90,20 +90,65 @@ export async function sendMessage(req: Request, res: Response) {
       }
      }
    */
+
+  // Verificar se o cliente está disponível e pronto
+  if (!req.client) {
+    return res.status(400).json({
+      error: true,
+      message: 'Cliente não encontrado. Verifique se a sessão está ativa.'
+    });
+  }
+
+  // Verificar se o cliente tem os métodos necessários
+  if (!req.client.sendText || typeof req.client.sendText !== 'function') {
+    return res.status(400).json({
+      error: true,
+      message: 'Cliente não está pronto. Aguarde a inicialização da sessão.'
+    });
+  }
+
   const { phone, message } = req.body;
+
+  if (!phone || !message) {
+    return res.status(400).json({
+      error: true,
+      message: 'Parâmetros phone e message são obrigatórios'
+    });
+  }
 
   const options = req.body.options || {};
 
   try {
     const results: any = [];
-    for (const contato of phone) {
-      results.push(await req.client.sendText(contato, message, options));
+
+    // Garantir que phone seja um array
+    const phoneArray = Array.isArray(phone) ? phone : [phone];
+
+    for (const contato of phoneArray) {
+      try {
+        const result = await req.client.sendText(contato, message, options);
+        results.push(result);
+      } catch (contactError: any) {
+        req.logger.error(`Erro ao enviar para ${contato}:`, contactError.message);
+        results.push({
+          error: true,
+          contact: contato,
+          message: contactError.message
+        });
+      }
     }
 
-    if (results.length === 0) res.status(400).json('Error sending message');
+    if (results.length === 0) {
+      return res.status(400).json({
+        error: true,
+        message: 'Erro ao enviar mensagens'
+      });
+    }
+
     req.io.emit('mensagem-enviada', results);
     returnSucess(res, results);
-  } catch (error) {
+  } catch (error: any) {
+    req.logger.error('Erro em sendMessage:', error);
     returnError(req, res, error);
   }
 }
@@ -116,7 +161,7 @@ export async function editMessage(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
     #swagger.requestBody = {
       required: true,
@@ -163,7 +208,7 @@ export async function sendFile(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -247,7 +292,7 @@ export async function sendVoice(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
         required: true,
@@ -313,7 +358,7 @@ export async function sendVoice64(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
         required: true,
@@ -371,7 +416,7 @@ export async function sendLinkPreview(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
         required: true,
@@ -425,7 +470,7 @@ export async function sendLocation(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
         required: true,
@@ -488,7 +533,7 @@ export async function sendButtons(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA',
+      schema: 'alfst-test',
      }
      #swagger.deprecated=true
    */
@@ -518,7 +563,7 @@ export async function sendListMessage(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA',
+      schema: 'alfst-test',
      }
      #swagger.requestBody = {
       required: true,
@@ -602,7 +647,7 @@ export async function sendOrderMessage(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
     #swagger.requestBody = {
       required: true,
@@ -703,7 +748,7 @@ export async function sendPollMessage(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
     #swagger.requestBody = {
         required: true,
@@ -764,7 +809,7 @@ export async function sendStatusText(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -815,7 +860,7 @@ export async function replyMessage(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -868,7 +913,7 @@ export async function sendMentioned(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
   required: true,
@@ -928,7 +973,7 @@ export async function sendImageAsSticker(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -986,7 +1031,7 @@ export async function sendImageAsStickerGif(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,

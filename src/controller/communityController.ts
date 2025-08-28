@@ -24,7 +24,7 @@ export async function createCommunity(req: Request, res: Response) {
               "bearerAuth": []
        }]
        #swagger.parameters["session"] = {
-        schema: 'NERDWHATS_AMERICA'
+        schema: 'alfst-test'
        }
       #swagger.requestBody = {
         required: true,
@@ -79,7 +79,7 @@ export async function deactivateCommunity(req: Request, res: Response) {
                 "bearerAuth": []
          }]
          #swagger.parameters["session"] = {
-          schema: 'NERDWHATS_AMERICA'
+          schema: 'alfst-test'
          }
         #swagger.requestBody = {
           required: true,
@@ -126,7 +126,7 @@ export async function addSubgroupsCommunity(req: Request, res: Response) {
             "bearerAuth": []
     }]
     #swagger.parameters["session"] = {
-    schema: 'NERDWHATS_AMERICA'
+    schema: 'alfst-test'
     }
     #swagger.requestBody = {
         required: true,
@@ -175,7 +175,7 @@ export async function removeSubgroupsCommunity(req: Request, res: Response) {
             "bearerAuth": []
     }]
     #swagger.parameters["session"] = {
-    schema: 'NERDWHATS_AMERICA'
+    schema: 'alfst-test'
     }
     #swagger.requestBody = {
         required: true,
@@ -224,7 +224,7 @@ export async function demoteCommunityParticipant(req: Request, res: Response) {
             "bearerAuth": []
     }]
     #swagger.parameters["session"] = {
-    schema: 'NERDWHATS_AMERICA'
+    schema: 'alfst-test'
     }
     #swagger.requestBody = {
         required: true,
@@ -276,7 +276,7 @@ export async function promoteCommunityParticipant(req: Request, res: Response) {
             "bearerAuth": []
     }]
     #swagger.parameters["session"] = {
-    schema: 'NERDWHATS_AMERICA'
+    schema: 'alfst-test'
     }
     #swagger.requestBody = {
         required: true,
@@ -328,7 +328,7 @@ export async function getCommunityParticipants(req: Request, res: Response) {
             "bearerAuth": []
     }]
     #swagger.parameters["session"] = {
-        schema: 'NERDWHATS_AMERICA'
+        schema: 'alfst-test'
     }
     #swagger.parameters["id"] = {
         schema: 'communityId@g.us'

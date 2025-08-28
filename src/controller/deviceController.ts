@@ -51,7 +51,7 @@ export async function setProfileName(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: false,
@@ -102,7 +102,7 @@ export async function showAllContacts(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
    */
   try {
@@ -128,7 +128,7 @@ export async function getAllChats(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
    */
   try {
@@ -153,7 +153,7 @@ export async function listChats(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: false,
@@ -249,7 +249,7 @@ export async function getAllChatsWithMessages(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
    */
   try {
@@ -275,7 +275,7 @@ export async function getAllMessagesInChat(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["phone"] = {
       schema: '5521999999999'
@@ -326,7 +326,7 @@ export async function getAllNewMessages(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
    */
   try {
@@ -350,7 +350,7 @@ export async function getAllUnreadMessages(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
    */
   try {
@@ -374,7 +374,7 @@ export async function getChatById(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["phone"] = {
       schema: '5521999999999'
@@ -413,7 +413,7 @@ export async function getMessageById(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["messageId"] = {
       required: true,
@@ -440,7 +440,7 @@ export async function getBatteryLevel(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
    */
   try {
@@ -464,7 +464,7 @@ export async function getHostDevice(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
    */
   try {
@@ -493,7 +493,7 @@ export async function getPhoneNumber(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
    */
   try {
@@ -519,7 +519,7 @@ export async function getBlockList(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
    */
   const response = await req.client.getBlockList();
@@ -548,7 +548,7 @@ export async function deleteChat(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: false,
@@ -594,7 +594,7 @@ export async function deleteAllChats(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
    */
   try {
@@ -621,7 +621,7 @@ export async function clearChat(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      
      #swagger.requestBody = {
@@ -669,7 +669,7 @@ export async function clearAllChats(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
    */
   try {
@@ -694,7 +694,7 @@ export async function archiveChat(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      
      #swagger.requestBody = {
@@ -743,7 +743,7 @@ export async function archiveAllChats(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
    */
   try {
@@ -771,7 +771,7 @@ export async function getAllChatsArchiveds(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
    */
   try {
@@ -800,7 +800,7 @@ export async function deleteMessage(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      
      #swagger.requestBody = {
@@ -871,7 +871,7 @@ export async function reactMessage(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: false,
@@ -923,7 +923,7 @@ export async function reply(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -973,7 +973,7 @@ export async function forwardMessages(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -1028,7 +1028,7 @@ export async function markUnseenMessage(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -1076,7 +1076,7 @@ export async function blockContact(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -1124,7 +1124,7 @@ export async function unblockContact(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -1172,7 +1172,7 @@ export async function pinChat(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["obj"] = {
       in: 'body',
@@ -1234,7 +1234,7 @@ export async function setProfilePic(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.consumes = ['multipart/form-data']  
       #swagger.parameters['file'] = {
@@ -1277,7 +1277,7 @@ export async function getUnreadMessages(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
    */
   try {
@@ -1299,7 +1299,7 @@ export async function getChatIsOnline(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["phone"] = {
       schema: '5521999999999',
@@ -1327,7 +1327,7 @@ export async function getLastSeen(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["phone"] = {
       schema: '5521999999999',
@@ -1356,7 +1356,7 @@ export async function getListMutes(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["type"] = {
       schema: 'all',
@@ -1386,7 +1386,7 @@ export async function loadAndGetAllMessagesInChat(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["phone"] = {
       schema: '5521999999999'
@@ -1422,7 +1422,7 @@ export async function getMessages(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["phone"] = {
       schema: '5521999999999@c.us'
@@ -1462,7 +1462,7 @@ export async function sendContactVcard(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -1521,7 +1521,7 @@ export async function sendMute(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
     #swagger.requestBody = {
       required: true,
@@ -1575,7 +1575,7 @@ export async function sendSeen(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -1623,7 +1623,7 @@ export async function setChatState(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -1677,7 +1677,7 @@ export async function setTemporaryMessages(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -1731,7 +1731,7 @@ export async function setTyping(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -1783,7 +1783,7 @@ export async function setRecording(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      
      #swagger.requestBody = {
@@ -1840,7 +1840,7 @@ export async function checkNumberStatus(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["phone"] = {
       schema: '5521999999999'
@@ -1872,7 +1872,7 @@ export async function getContact(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["phone"] = {
       schema: '5521999999999'
@@ -1902,7 +1902,7 @@ export async function getAllContacts(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
    */
   try {
@@ -1928,7 +1928,7 @@ export async function getNumberProfile(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["phone"] = {
       schema: '5521999999999'
@@ -1960,7 +1960,7 @@ export async function getProfilePicFromServer(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["phone"] = {
       schema: '5521999999999'
@@ -1993,7 +1993,7 @@ export async function getStatus(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["phone"] = {
       schema: '5521999999999'
@@ -2022,7 +2022,7 @@ export async function setProfileStatus(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["obj"] = {
       in: 'body',
@@ -2072,7 +2072,7 @@ export async function rejectCall(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      
      #swagger.requestBody = {
@@ -2117,7 +2117,7 @@ export async function starMessage(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -2165,7 +2165,7 @@ export async function getReactions(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["messageId"] = {
       schema: '<messageId>'
@@ -2194,7 +2194,7 @@ export async function getVotes(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["messageId"] = {
       schema: '<messageId>'
@@ -2221,7 +2221,7 @@ export async function chatWoot(req: Request, res: Response): Promise<any> {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.requestBody = {
       required: true,
@@ -2277,11 +2277,10 @@ export async function chatWoot(req: Request, res: Response): Promise<any> {
       for (const contato of contactToArray(phone, false)) {
         if (message_type == 'outgoing') {
           if (message.attachments) {
-            const base_url = `${
-              client.config.chatWoot.baseURL
-            }/${message.attachments[0].data_url.substring(
-              message.attachments[0].data_url.indexOf('/rails/') + 1
-            )}`;
+            const base_url = `${client.config.chatWoot.baseURL
+              }/${message.attachments[0].data_url.substring(
+                message.attachments[0].data_url.indexOf('/rails/') + 1
+              )}`;
 
             // Check if attachments is Push-to-talk and send this
             if (message.attachments[0].file_type === 'audio') {
@@ -2325,7 +2324,7 @@ export async function getPlatformFromMessage(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["messageId"] = {
       schema: '<messageId>'

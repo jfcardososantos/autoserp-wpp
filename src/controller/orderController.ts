@@ -57,7 +57,7 @@ export async function getBusinessProfilesProducts(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["phone"] = {
       in: 'query',
@@ -86,7 +86,7 @@ export async function getOrderbyMsg(req: Request, res: Response) {
             "bearerAuth": []
      }]
      #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
+      schema: 'alfst-test'
      }
      #swagger.parameters["messageId"] = {
       schema: 'true_5521999999999@c.us_3EB0E69ACC5B396B21F2FE'

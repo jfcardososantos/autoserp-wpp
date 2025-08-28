@@ -94,7 +94,7 @@ const doc = {
     '@schemas': {
       session: {
         type: 'string',
-        schema: 'NERDWHATS_AMERICA',
+        schema: 'alfst-test',
       },
     },
   },
