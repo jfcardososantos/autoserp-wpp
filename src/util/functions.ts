@@ -243,10 +243,14 @@ export async function startAllSessions(config: any, logger: any) {
     // Usar http nativo do Node.js para evitar problemas de dependência
     const http = require('http');
 
+    // Determinar a porta correta - usar a porta onde o servidor está rodando
+    const serverPort = process.env.PORT || config.port;
+    logger.info(`Tentando conectar na porta: ${serverPort}`);
+
     const postData = JSON.stringify({});
     const options = {
-      hostname: config.host.replace('http://', ''),
-      port: config.port,
+      hostname: 'localhost', // Sempre localhost para conexão interna
+      port: serverPort,
       path: `/api/${config.secretKey}/start-all`,
       method: 'POST',
       headers: {
@@ -273,6 +277,11 @@ export async function startAllSessions(config: any, logger: any) {
 
       req.on('error', (err: any) => {
         logger.error('Erro na requisição HTTP:', err.message);
+        logger.error('Detalhes da conexão:', {
+          hostname: options.hostname,
+          port: options.port,
+          path: options.path
+        });
         reject(err);
       });
 
@@ -281,7 +290,7 @@ export async function startAllSessions(config: any, logger: any) {
     });
   } catch (e: any) {
     if (e.code === 'ECONNREFUSED') {
-      logger.error('Erro de conexão: Servidor não está respondendo na porta', config.port);
+      logger.error('Erro de conexão: Servidor não está respondendo na porta', process.env.PORT || config.port);
       logger.info('Isso é normal na primeira inicialização, o servidor tentará novamente mais tarde');
     } else {
       logger.error('Erro ao iniciar sessões:', e.message || e);

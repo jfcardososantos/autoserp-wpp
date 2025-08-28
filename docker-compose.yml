@@ -17,6 +17,7 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=21465
+      - HOST=localhost
 
   autoserp-mongo:
     container_name: wpp-connect_autoserp-mongo
