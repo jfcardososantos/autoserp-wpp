@@ -14,6 +14,8 @@ services:
       - "21465:21465"
     depends_on:
       - autoserp-mongo
+    environment:
+      - NODE_ENV=production
 
   autoserp-mongo:
     container_name: wpp-connect_autoserp-mongo
@@ -24,6 +26,10 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=mongo
       - MONGO_INITDB_ROOT_PASSWORD=4c5c50327ff2dbe8aba7
+      - MONGO_INITDB_DATABASE=tokens
+    ports:
+      - "27017:27017"
+    command: mongod --auth
 
 volumes:
   mongodb_data: {}

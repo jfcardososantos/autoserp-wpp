@@ -239,11 +239,19 @@ export async function autoDownload(client: any, req: any, message: any) {
 
 export async function startAllSessions(config: any, logger: any) {
   try {
-    await api.post(
+    logger.info('Tentando iniciar todas as sessões...');
+    const response = await api.post(
       `${config.host}:${config.port}/api/${config.secretKey}/start-all`
     );
-  } catch (e) {
-    logger.error(e);
+    logger.info('Sessões iniciadas com sucesso:', response.data);
+  } catch (e: any) {
+    if (e.code === 'ECONNREFUSED') {
+      logger.error('Erro de conexão: Servidor não está respondendo na porta', config.port);
+    } else if (e.response) {
+      logger.error('Erro na resposta do servidor:', e.response.status, e.response.data);
+    } else {
+      logger.error('Erro ao iniciar sessões:', e.message || e);
+    }
   }
 }
 

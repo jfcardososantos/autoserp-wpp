@@ -1,29 +1,45 @@
-//import mongoose from 'mongoose';
 import config from '../../../config';
 
-const mongoose =
-  config.tokenStoreType === 'mongodb' ? require('mongoose') : null;
+let mongoose: any = null;
 
 if (config.tokenStoreType === 'mongodb') {
-  mongoose.Promise = global.Promise;
-  const userAndPassword =
-    config.db.mongodbUser && config.db.mongodbPassword
-      ? `${config.db.mongodbUser}:${config.db.mongodbPassword}@`
-      : '';
+  try {
+    // @ts-ignore - Ignorar erro de linter para require
+    mongoose = require('mongoose');
 
-  if (!config.db.mongoIsRemote) {
-    mongoose.connect(
-      `mongodb://${userAndPassword}${config.db.mongodbHost}:${config.db.mongodbPort}/${config.db.mongodbDatabase}`,
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      }
-    );
-  } else {
-    mongoose.connect(config.db.mongoURLRemote, {
+    const connectOptions = {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 10000
+    };
+
+    // Teste simples de conexão
+    if (!config.db.mongoIsRemote) {
+      const userAndPassword =
+        config.db.mongodbUser && config.db.mongodbPassword
+          ? `${config.db.mongodbUser}:${config.db.mongodbPassword}@`
+          : '';
+
+      mongoose.connect(
+        `mongodb://${userAndPassword}${config.db.mongodbHost}:${config.db.mongodbPort}/${config.db.mongodbDatabase}`,
+        connectOptions
+      );
+    } else {
+      mongoose.connect(config.db.mongoURLRemote, connectOptions);
+    }
+
+    // Teste básico de conexão
+    mongoose.connection.once('open', () => {
+      console.log('✅ MongoDB conectado com sucesso');
     });
+
+    mongoose.connection.on('error', (err: any) => {
+      console.error('❌ Erro na conexão MongoDB:', err.message);
+    });
+
+  } catch (error) {
+    console.error('❌ Erro ao carregar mongoose:', error);
   }
 }
 
