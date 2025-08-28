@@ -263,6 +263,7 @@ export async function startAllSessions(config: any, logger: any) {
       logger.info('Isso é normal na primeira inicialização, o servidor tentará novamente mais tarde');
     } else {
       logger.error('Erro ao iniciar sessões:', e.message || e);
+      logger.error('Detalhes do erro:', JSON.stringify(e, null, 2));
     }
   }
 }

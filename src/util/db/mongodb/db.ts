@@ -8,10 +8,12 @@ if (config.tokenStoreType === 'mongodb') {
     mongoose = require('mongoose');
 
     const connectOptions = {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
       serverSelectionTimeoutMS: 5000,
-      socketTimeoutMS: 10000
+      socketTimeoutMS: 10000,
+      maxPoolSize: 10,
+      minPoolSize: 1,
+      retryWrites: true,
+      w: 'majority'
     };
 
     // Teste simples de conexão
