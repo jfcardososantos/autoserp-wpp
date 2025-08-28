@@ -240,30 +240,56 @@ export async function startAllSessions(config: any, logger: any) {
   try {
     logger.info('Tentando iniciar todas as sessões...');
 
-    // Usar fetch nativo em vez de axios para evitar problemas de dependência
-    const response = await fetch(
-      `${config.host}:${config.port}/api/${config.secretKey}/start-all`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    );
+    // Usar http nativo do Node.js para evitar problemas de dependência
+    const http = require('http');
 
-    if (response.ok) {
-      const data = await response.json();
-      logger.info('Sessões iniciadas com sucesso:', data);
-    } else {
-      logger.error('Erro na resposta do servidor:', response.status, response.statusText);
-    }
+    const postData = JSON.stringify({});
+    const options = {
+      hostname: config.host.replace('http://', ''),
+      port: config.port,
+      path: `/api/${config.secretKey}/start-all`,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(postData)
+      }
+    };
+
+    return new Promise((resolve, reject) => {
+      const req = http.request(options, (res: any) => {
+        let data = '';
+        res.on('data', (chunk: any) => {
+          data += chunk;
+        });
+        res.on('end', () => {
+          if (res.statusCode === 200 || res.statusCode === 201) {
+            logger.info('Sessões iniciadas com sucesso:', data);
+          } else {
+            logger.error('Erro na resposta do servidor:', res.statusCode, data);
+          }
+          resolve(data);
+        });
+      });
+
+      req.on('error', (err: any) => {
+        logger.error('Erro na requisição HTTP:', err.message);
+        reject(err);
+      });
+
+      req.write(postData);
+      req.end();
+    });
   } catch (e: any) {
     if (e.code === 'ECONNREFUSED') {
       logger.error('Erro de conexão: Servidor não está respondendo na porta', config.port);
       logger.info('Isso é normal na primeira inicialização, o servidor tentará novamente mais tarde');
     } else {
       logger.error('Erro ao iniciar sessões:', e.message || e);
-      logger.error('Detalhes do erro:', JSON.stringify(e, null, 2));
+      logger.error('Tipo do erro:', typeof e);
+      logger.error('Stack trace:', e.stack);
+      if (e.cause) {
+        logger.error('Causa do erro:', e.cause);
+      }
     }
   }
 }
