@@ -130,20 +130,36 @@ export async function startAllSessions(
   const allSessions = await getAllTokens(req);
 
   if (tokenDecrypt !== req.serverOptions.secretKey) {
-    res.status(400).json({
+    return res.status(400).json({
       response: 'error',
       message: 'The token is incorrect',
     });
   }
 
-  allSessions.map(async (session: string) => {
-    const util = new CreateSessionUtil();
-    await util.opendata(req, session);
-  });
+  // Verificar se há sessões para iniciar
+  if (!allSessions || allSessions.length === 0) {
+    return res.status(200).json({
+      status: 'success',
+      message: 'No sessions found to start',
+      sessions: []
+    });
+  }
 
-  return await res
-    .status(201)
-    .json({ status: 'success', message: 'Starting all sessions' });
+  // Iniciar sessões
+  for (const session of allSessions) {
+    try {
+      const util = new CreateSessionUtil();
+      await util.opendata(req, session);
+    } catch (error: any) {
+      req.logger.error(`Erro ao iniciar sessão ${session}:`, error);
+    }
+  }
+
+  return res.status(201).json({
+    status: 'success',
+    message: 'Starting all sessions',
+    totalSessions: allSessions.length
+  });
 }
 
 export async function showAllSessions(

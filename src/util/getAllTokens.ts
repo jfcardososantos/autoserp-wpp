@@ -16,11 +16,20 @@
 import Factory from './tokenStore/factory';
 
 export default async function getAllTokens(req: any) {
-  const tokenStore = new Factory();
-  const myTokenStore = tokenStore.createTokenStory(null);
   try {
-    return await myTokenStore.listTokens();
-  } catch (e) {
-    req.logger.error(e);
+    const tokenStore = new Factory();
+    const myTokenStore = tokenStore.createTokenStory(null);
+
+    if (!myTokenStore) {
+      req.logger.error('Token store não foi criado corretamente');
+      return [];
+    }
+
+    const tokens = await myTokenStore.listTokens();
+    req.logger.info(`Tokens encontrados: ${tokens ? tokens.length : 0}`);
+    return tokens || [];
+  } catch (e: any) {
+    req.logger.error('Erro ao buscar tokens:', e.message || e);
+    return [];
   }
 }

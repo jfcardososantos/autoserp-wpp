@@ -92,6 +92,29 @@ docker-compose down
 docker-compose up --build
 ```
 
+### Erro ao Iniciar Sessões
+Se você encontrar erros ao iniciar sessões:
+
+1. **Verificar tokens no banco:**
+```bash
+./check-tokens.sh
+```
+
+2. **Testar endpoint start-all:**
+```bash
+./test-start-sessions.sh
+```
+
+3. **Verificar logs do servidor:**
+```bash
+docker-compose logs -f wppconnect
+```
+
+4. **Problemas comuns:**
+   - **Nenhum token encontrado**: Crie uma sessão primeiro usando `/api/{secretKey}/create`
+   - **Erro de autenticação**: Verifique se o `secretKey` está correto
+   - **MongoDB não conectado**: Execute `./test-mongo.sh`
+
 ### Testar Conexão MongoDB
 ```bash
 ./test-mongo.sh
