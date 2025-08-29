@@ -1,25 +1,21 @@
-version: "3.8"
-
+version: '3.7'
 services:
   wppconnect:
-    container_name: wpp-server
-    restart: unless-stopped
     build:
       context: .
-    volumes:
-      - ./config.ts:/usr/src/wpp-server/config.ts
-      - ./wppconnect_tokens:/usr/src/wpp-server/tokens
-      - ./userDataDir:/usr/src/wpp-server/userDataDir
+      dockerfile: Dockerfile
+    image: wppconnect/server
+    container_name: wppconnect
+    restart: unless-stopped
     ports:
-      - "21465:21465"
-    depends_on:
-      - autoserp-mongo
+      - '3333:3333'
+    volumes:
+      - ./wppconnect_tokens:/usr/src/wpp-server/wppconnect_tokens
+      - ./userDataDir:/usr/src/wpp-server/userDataDir
+      - ./src/swagger.json:/usr/src/wpp-server/src/swagger.json
     environment:
-      - NODE_ENV=production
-      - PORT=21465
-      - HOST=localhost
-      - HOSTNAME=wpp-server-${RANDOM}
-      - CHROME_DEVEL_SANDBOX=/usr/lib/chromium/chrome-sandbox
+      - TZ=America/Sao_Paulo
+    command: 'yarn start'
 
   autoserp-mongo:
     container_name: wpp-connect_autoserp-mongo

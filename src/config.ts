@@ -105,7 +105,6 @@ export default {
       '--password-store=basic',
       '--use-mock-keychain',
       '--disable-blink-features=AutomationControlled',
-      '--user-data-dir=/tmp/chrome-profile-${Math.random()}',
       '--no-first-run',
       '--no-default-browser-check',
       '--disable-default-apps',
