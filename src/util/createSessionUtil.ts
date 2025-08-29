@@ -57,7 +57,11 @@ export default class CreateSessionUtil {
       if (req.serverOptions.customUserDataDir) {
         req.serverOptions.createOptions.puppeteerOptions = {
           userDataDir: req.serverOptions.customUserDataDir + session,
-          args: ['--no-sandbox', '--disable-setuid-sandbox'],
+          args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-features=ProcessSingleton',
+          ],
           ignoreDefaultArgs: ['--enable-automation'],
         };
       }
