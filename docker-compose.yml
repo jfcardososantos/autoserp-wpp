@@ -10,7 +10,7 @@ services:
     ports:
       - '3333:3333'
     volumes:
-      - ./wppconnect_tokens:/usr/src/wpp-server/wppconnect_tokens
+      - ./wppconnect_tokens:/usr/src/wpp-server/tokens
       - ./userDataDir:/usr/src/wpp-server/userDataDir
       - ./src/swagger.json:/usr/src/wpp-server/src/swagger.json
     environment:
