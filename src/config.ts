@@ -11,7 +11,7 @@ export default {
   maxListeners: 15,
   customUserDataDir: './userDataDir/',
   webhook: {
-    url: 'https://ia-projects-n8n-webhook.iqxn2g.easypanel.host/webhook/lidtest',
+    url: '',
     autoDownload: true,
     uploadS3: false,
     readMessage: true,
